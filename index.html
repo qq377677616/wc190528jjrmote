@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="./static/css/reset.css">
+</head>
+
+<body>
+
+    <div class="content" id="app">
+        <div class="img_style"><img src="./static/img/bg.png" width="100%" height="100%" /></div>
+        <!-- 报名入口 -->
+        <div class="apply popup" style="display: none;">
+            <form class="form-horizontal">
+                <div style="display: block; width: 100%;">
+                    <div class="form-group" style="justify-content: flex-end;"><button type="button" id="cancel"
+                            class="cancel" onclick="roll(false)"></button></div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label" for="name">姓名</label>
+                        <div class="flex_title">
+                            <input id="name" onfocus="marginTop(true)" onblur="marginTop(false)" name="name" type="text"
+                                placeholder="" class="form-control input-md" required="" value="">
+                        </div>
+                        <label class="control-label" for="work_number">工号</label>
+                        <div class="flex_title">
+                            <input id="work_number" onkeyup="value=value.replace(/[^\d]/g,'')" onfocus="marginTop(true)"
+                                onblur="marginTop(false)" name="work_number" type="text" placeholder=""
+                                class="form-control input-md" required="" maxlength="10" value="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label" for="city">城市</label>
+                        <div class="flex_title">
+                            <input id="city" name="city" type="text" placeholder="" required=""
+                                class="form-control input-md" value="">
+                        </div>
+                        <label class="control-label" for="phone">电话</label>
+                        <div class="flex_title">
+                            <input id="phone" name="phone" type="text" maxlength="11"
+                                onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="" required=""
+                                class="form-control input-md" value="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label" for="belong_brand">所属品牌</label>
+                        <div class="col-flex">
+                            <input id="belong_brand" name="belong_brand" type="text" placeholder="" required=""
+                                class="form-control input-md" value="">
+                        </div>
+                    </div>
+                    <label class="control-label remark_title">上传照片<span
+                            class="remark">（包括正面头像、半身照、全身形象照、生活照4张）</span></label>
+                    <div class="form-group" style="overflow: initial;">
+                        <ul class="flex_content">
+                            <li>
+                                <div class="img_border"></div><span class="remove_img" hidden></span><input type="file"
+                                    class="imgfile" hidden />
+                            </li>
+                            <li>
+                                <div class="img_border"></div><span class="remove_img" hidden></span><input type="file"
+                                    class="imgfile" hidden />
+                            </li>
+                            <li>
+                                <div class="img_border"></div><span class="remove_img" hidden></span><input type="file"
+                                    class="imgfile" hidden />
+                            </li>
+                            <li>
+                                <div class="img_border"></div><span class="remove_img" hidden></span><input type="file"
+                                    class="imgfile" hidden />
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <div class="three-rows" style="padding-bottom:0.1rem;">
+                            <label class="control-label" for="age">年龄</label>
+                            <div class="flex_title">
+                                <input id="age" name="age" onkeyup="value=value.replace(/[^\d]/g,'')" type="text"
+                                    placeholder="" required="" class="small_input form-control" value="">
+                            </div>
+                        </div>
+                        <div class="three-rows" style="padding-bottom:0.1rem;">
+                            <label class=" control-label" for="weight">体重<small class="small_text">(kg)</small></label>
+                            <div class="flex_title">
+                                <input id="weight" name="weight" onkeyup="value=value.replace(/[^\d]/g,'')" type="text"
+                                    placeholder="" required="" class="small_input form-control" value="">
+                            </div>
+                        </div>
+                        <div class="three-rows" style="padding-bottom:0.1rem;">
+                            <label class=" control-label" for="height">身高<small class="small_text">(cm)</small></label>
+                            <div class="flex_title">
+                                <input id="height" name="height" onkeyup="value=value.replace(/[^\d]/g,'')" type="text"
+                                    placeholder="" required="" class="small_input form-control" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button (Double) -->
+                    <div class="form-group">
+                        <button type="submit" id="save1" class="submit_bt flex_vertical">
+                            <img src="./static/img/right.png" class="left_right ">提交<img src="./static/img/left.png"
+                                class="left_right">
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <!-- 抢购折扣 -->
+        <div class="rush popup" style="display: none;">
+            <form class="form-horizontal" style="left: 10.78%;">
+                <div style="display: block; width: 100%;">
+                    <div class="form-group" style="justify-content: flex-end;"><button type="button" id="cancel"
+                            class="cancel" onclick="roll(false)"></button></div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label" for="name">姓名</label>
+                        <div class="col-flex">
+                            <input id="name" name="name" type="text" placeholder="" required=""
+                                class="form-control input-md" value="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label" for="work_number">工号</label>
+                        <div class="col-flex">
+                            <input id="work_number" name="work_number" onkeyup="value=value.replace(/[^\d]/g,'')"
+                                type="text" placeholder="" required="" class="form-control input-md" value="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label" for="phone">手机</label>
+                        <div class="col-flex">
+                            <input id="phone" name="phone" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="11"
+                                type="text" placeholder="" required="" class="form-control input-md" value="">
+                        </div>
+                    </div>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="control-label" for="email">邮箱</label>
+                        <div class="col-flex">
+                            <input id="email" name="email" type="text" placeholder="" required=""
+                                class="form-control input-md" value="">
+                        </div>
+                    </div>
+                    <!-- Button (Double) -->
+                    <div class="form-group">
+                        <!-- <button type="button" id="cancel" class="cancel">Cancel</button> -->
+                        <button type="submit" id="save" class="submit_bt flex_vertical"> <img
+                                src="./static/img/right.png" class="left_right ">立即确定<img src="./static/img/left.png"
+                                class="left_right"> </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <!-- 活动规则 -->
+        <div class="rules popup" style="display: none;">
+            <form class="form-horizontal" style="padding: 0px;">
+                <div style="display: block; width: 100%;">
+                    <div class="form-group cancel_p" style="justify-content: flex-end;"><button type="button"
+                            id="cancel" class="cancel " onclick="roll(false)"></button></div>
+                    <div class="title_rules">活动规则</div>
+                    <div style="height: 6.68rem; overflow: scroll;" id="activity_rules">
+                        <div class="rules_text">
+                            <p class="rules_title">
+                                <span class="">
+                                    <招募对象>
+                                </span>
+                                <span class="rules_c">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;面向贝壳平台上所有品牌的经纪人/商圈经理进行招募。
+                                </span>
+                            </p>
+                            <p class="rules_title">
+                                <span class="">
+                                    <模特要求和福利>
+                                </span>
+                                <span class="rules_c">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们希望你是一个形象好气质佳的小姐姐或是一个帅气飒
+                                    爽的小哥哥，乐于挑战自我，秀出自己的精彩。<br />
+                                    女生参考身高：165-178 ; 男生参考身高：178-188
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7月底，贝壳平台将举办2019夏秋服饰大赏，被选拔出的
+                                    “首席模特”将作为贝壳平台经纪人形象全新升级的“新形
+                                    象代表”登台走秀！<br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们将为你提供专业的模特形体培训，帮你提升个人气质，
+                                    更增个人魅力。</br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;活动期间，平台还会邀请到时尚芭莎的优秀摄影师为模特
+                                    们拍摄时尚大片！</br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;夏秋服饰即将出新，首席模特还将免费获得抢先体验的全
+                                    套新款服装！
+                                </span>
+                            </p>
+                            <p class="rules_title">
+                                <span>
+                                    <征集时间>
+                                </span>
+                                <span class="rules_c">
+                                    即日起-2019年6月27日
+                                </span>
+                            </p>
+                            <p class="rules_title">
+                                <span>
+                                    <评选方法及培训设置>
+                                </span>
+                                <span class="rules_c">
+                                    <span class="f_title">初选</span><br />
+                                    时间：6月28日、29日<br />
+                                    评选方式：线上评选。平台会根据各位经纪人伙伴报名提交
+                                    的资料进行初选，评选出200位候选人进入复选环节<br />
+                                    <span class="f_title">复选</span><br />
+                                    时间：7月4日、5日（预计）<br />
+                                    评选方式：线下复试。我们将邀请平台总部评审团、外邀专
+                                    业模特和导演组成评委会，在城市线下举办复试，评选出50
+                                    位候选人参加平台组织的培训。<br />
+                                    <span class="f_title">形体培训</span><br />
+                                    复选结束后，将进行为期3天（暂定）的经纪人模特形体培训
+                                    环节，邀请新丝路模特大赛导演为评选出的首席模特进行专
+                                    业的形体培训，具体培训内容和地点另行通知。<br />
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- <div class="activity_rules"></div> -->
+        </div>
+        <!-- 优惠券发放规则 -->
+        <div class="coupon popup" style="display: none;">
+            <form class="form-horizontal" style="padding: 0px;">
+                <div style="display: block; width: 100%;">
+                    <div class="form-group cancel_p" style="justify-content: flex-end;"><button type="button"
+                            id="cancel" class="cancel " onclick="roll(false)"></button></div>
+                    <div class="title_rules">优惠规则</div>
+                    <div style="height: 6.68rem;">
+                        <div class="rules_text">
+                            <p class="rules_title">
+                                <span class="">
+                                    <优惠对象>
+                                </span>
+                                <span class="rules_c">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;各城市各品牌经纪人、商圈经理等均可参与。
+                                </span>
+                            </p>
+                            <p class="rules_title">
+                                <span class="">
+                                    <优惠发放>
+                                </span>
+                                <span class="rules_c">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;留下您的联系方式提交报名成功即视为领取优惠。<br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新款服饰上线后，我们将以邮件的形式为您发送优惠购买链接，点击即可优惠购买。
+                                </span>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 操作按钮 -->
+        <div class="p_absolute p_absolute_apply">
+            <button class="show-apply apply_bt flex_vertical"><img src="./static/img/right.png"
+                    class="left_right ">报名入口<img src="./static/img/left.png" class="left_right"></button>
+            <button class="look_rules show-rules">查看活动规则</button>
+        </div>
+        <div class="p_absolute p_absolute_rush">
+            <button class="show-rush flex_vertical"><img src="./static/img/right.png" class="left_right ">抢早鸟折扣<img
+                    src="./static/img/left.png" class="left_right"></button>
+            <button class="look_rules show-coupon">查看活动规则</button>
+        </div>
+    </div>
+    <script src="./static/js/jquery-3.4.1.min.js"></script>
+    <script src="./static/js/jquery-prompt21.min.js"></script>
+    <script src="./static/js/vconsole.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <!-- 微信jssdk引用 -->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <!-- 微信jssdk注册参数 -->
+    <script src="http://game.flyh5.cn/game/twolevel_autho/share.php?type=js&auth_appid=wx7c3ed56f7f792d84"></script>
+    <!-- 微信jssdk注册逻辑 -->
+    <script src="./static/js/wechatShart.js"></script>
+    <!-- 配置分享信息 -->
+
+    <!-- 禁止屏幕下拉 -->
+    <script>
+
+        //document.querySelector('body').addEventListener('touchmove', function (e) { e.preventDefault(); });
+
+    </script>
+    <!-- 腾讯统计 -->
+    <script> var _mtac = { "performanceMonitor": 1, "senseQuery": 1 }; (function () { var mta = document.createElement("script"); mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4"; mta.setAttribute("name", "MTAH5"); mta.setAttribute("sid", "500684363"); mta.setAttribute("cid", "500684364"); var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(mta, s); })(); </script>
+</body>
+
+</html>
